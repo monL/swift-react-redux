@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
-import PatientsTable from './components/PatientsTable';
-import { connect } from 'react-redux';
+import { Route, BrowserRouter, Switch } from 'react-router-dom'
+import Home from './components/Home'
+import PatientDetails from './components/PatientDetails'
 
 class App extends Component {
   render() {
-    const { patients } = this.props;
 
     return (
-      <div className="App">
-        <h1>Swift Medical - React/Redux Challenge</h1>
-        <PatientsTable patients={patients}/>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Switch>
+            <Route exact path='/' component={Home}/>
+            <Route path='/patients/:patient_id' component={PatientDetails} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    patients: state.patients
-  }
-}
-
-export default connect(mapStateToProps)(App);
+export default App;

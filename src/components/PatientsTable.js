@@ -19,6 +19,7 @@ const PatientsTable = (props) => {
                         <th>Last Name</th>
                         <th>Room #</th>
                         <th>Bed #</th>
+                        <th></th>
                     </tr> 
                 </thead>
                 <tbody>
