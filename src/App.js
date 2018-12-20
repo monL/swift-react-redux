@@ -1,43 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
-import PatientsTable from './Modules/PatientsTable';
+import PatientsTable from './components/PatientsTable';
+import { connect } from 'react-redux';
 
 class App extends Component {
-  state = {
-    patients: [
-      {
-        id: 1,
-        firstName: "Jewell",
-        lastName: "Labadie",
-        dateOfBirth: "1936-04-19T00:32:29.163Z",
-        address: "371 Anderson Village",
-        roomNumber: 12,
-        bedNumber: 2,
-        avatarUrl: "https://s3.amazonaws.com/uifaces/faces/twitter/imomenui/128.jpg",
-        updatedAt: "2009-07-18T01:28:11.542Z",
-      },
-      {
-        id: 2,
-        firstName: "Gunner",
-        lastName: "Weissnat",
-        dateOfBirth: "2005-02-14T14:57:14.210Z",
-        address: "846 Ocie Loop",
-        roomNumber: 14,
-        bedNumber: 4,
-        avatarUrl: "https://s3.amazonaws.com/uifaces/faces/twitter/marrimo/128.jpg",
-        updatedAt: "2018-06-01T05:38:16.266Z",
-      },
-    ]
-  }
-  
   render() {
+    const { patients } = this.props;
+
     return (
       <div className="App">
         <h1>Swift Medical - React/Redux Challenge</h1>
-        <PatientsTable patients={this.state.patients}/>
+        <PatientsTable patients={patients}/>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    patients: state.patients
+  }
+}
+
+export default connect(mapStateToProps)(App);
