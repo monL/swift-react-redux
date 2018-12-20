@@ -23,7 +23,7 @@ const initState = {
       updatedAt: "2018-06-01T05:38:16.266Z",
     },
   ]
-  }
+}
   
   const rootReducer = (state = initState, action) => {
     return state;

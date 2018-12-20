@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PatientsTable from './PatientsTable';
+import PatientsTable from '../components/PatientsTable';
 import { connect } from 'react-redux';
 
 class Home extends Component {
