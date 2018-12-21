@@ -19,7 +19,7 @@ const PatientsTable = (props) => {
 
     return (
         <div className="patients-table">
-            <table className="table">
+            <table className="table table-striped table-hover">
                 <thead>
                     <tr>
                         <th>First Name</th>

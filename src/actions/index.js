@@ -1,19 +1,17 @@
-import patientAPI from '../api/patientAPI'
+import patientAPI from '../api/patientAPI';
+import {
+    RECEIVE_PATIENTS
+  } from '../constants/actionTypes'
 
-export const getAllPatients = () => dispatch => {
-    patientAPI.getPatients(patients => {
-        dispatch(receivePatients(patients))
-      })
-}
 
-export const getAllPatientsWithoutTimeout = () => dispatch => {
+  export const getAllPatientsWithoutTimeout = () => dispatch => {
     patientAPI.getPatientsWithoutTimeout(patients => {
         dispatch(receivePatients(patients))
       })
 }
 
 const receivePatients = patients => ({
-    type: 'RECEIVE_PATIENTS',
+    type: RECEIVE_PATIENTS,
     patients
   })
 
