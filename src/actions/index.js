@@ -6,6 +6,12 @@ export const getAllPatients = () => dispatch => {
       })
 }
 
+export const getAllPatientsWithoutTimeout = () => dispatch => {
+    patientAPI.getPatientsWithoutTimeout(patients => {
+        dispatch(receivePatients(patients))
+      })
+}
+
 const receivePatients = patients => ({
     type: 'RECEIVE_PATIENTS',
     patients

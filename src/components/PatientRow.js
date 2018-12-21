@@ -5,10 +5,10 @@ const PatientRow = (props) => {
     const { patient } = props;
     return (
         <tr>
-            <td>{ patient.firstName }</td>
-            <td>{ patient.lastName }</td>
-            <td>{ patient.roomNumber }</td>
-            <td>{ patient.bedNumber }</td>
+            <td>{ patient.attributes.firstName }</td>
+            <td>{ patient.attributes.lastName }</td>
+            <td>{ patient.attributes.roomNumber }</td>
+            <td>{ patient.attributes.bedNumber }</td>
             <td>
                 <Link to={'/patients/' + patient.id}>
                     <span>See Details ></span>
