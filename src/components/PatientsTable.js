@@ -1,21 +1,16 @@
 import React from 'react';
 import PatientRow from './PatientRow';
 
-//this is a function based component
-//TODO: this needs refactoring and cleaning.
 const PatientsTable = (props) => {
     const { patients } = props;
-    var patientContent;
-    if ( !patients ) patientContent = <tr></tr>;
     
-    else {
-        const patientRows = patients.map(patient => {
-            return (
-                <PatientRow patient={ patient } key={ patient.id} />
-            )
-        });
-        patientContent = patientRows;     
-    }
+    if ( !patients || patients.length === 0 ) return <div className="empty-content"><h3>No patients</h3></div>;
+    
+    const patientRows = patients.map(patient => {
+        return (
+            <PatientRow patient={ patient } key={ patient.id} />
+        )
+    });
 
     return (
         <div className="patients-table">
@@ -30,7 +25,7 @@ const PatientsTable = (props) => {
                     </tr> 
                 </thead>
                 <tbody>
-                    { patientContent }  
+                    { patientRows }  
                 </tbody>
             </table>
         </div>

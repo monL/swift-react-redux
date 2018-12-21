@@ -4,8 +4,8 @@ import {
   } from '../constants/actionTypes'
 
 
-  export const getAllPatientsWithoutTimeout = () => dispatch => {
-    patientAPI.getPatientsWithoutTimeout(patients => {
+export const getAllPatients = () => dispatch => {
+    patientAPI.getPatients(patients => {
         dispatch(receivePatients(patients))
       })
 }
