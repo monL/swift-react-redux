@@ -16,7 +16,6 @@ const rootReducer = (state = initState, action) => {
       };
     }
     case RECEIVE_WOUNDS: {
-      debugger
       //replace current wounds item...
       //TODO: research best practices on how to do this..
       //TODO: why does the state not have any patients at this point?

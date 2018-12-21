@@ -2,27 +2,23 @@ import React, { Component } from 'react';
 import WoundsTable from '../components/WoundsTable';
 import PatientInfo from '../components/PatientInfo';
 
-import thunk from 'redux-thunk';
-import { createStore, applyMiddleware } from 'redux';
-import rootReducer from '../reducers/rootReducer';
+import { connect } from 'react-redux';
 import { getPatientWounds } from '../actions/index';
 
 class PatientDetails extends Component {
-    //TODO: add wounds to woundsTable from props
+    //TODO: figure out best practices.
+    //this is probably not the best way to dispatch from a container
     constructor(props) {
         super(props)
         const patientId = props.match.params.patient_id;
 
-        //TODO: move this elsewhere...or pass store as props
-        const middleware = [ thunk ];
-        const store = createStore(
-            rootReducer,
-            applyMiddleware(...middleware)
-        );
-        store.dispatch(getPatientWounds(patientId));
+        this.props.dispatch(getPatientWounds(patientId));
     }
         
     render() {
+        debugger
+        const { wounds } = this.props;
+
         return (
             <div className="patient-details">
                 <h1>Patient Name</h1>
@@ -30,12 +26,30 @@ class PatientDetails extends Component {
                     <PatientInfo />
                 </div>
                 <div className="wounds">
-                    <WoundsTable /> 
+                    <WoundsTable wounds={wounds} /> 
                 </div>
             </div>
         );
     }
 }
 
-//TODO: connect patient details to state
-export default PatientDetails
+//TODO: figure out how to get patientId here...
+const mapStateToProps = (state) => {
+    debugger
+    //find patient with specific id
+    // const patientId = this.props.match.params.patient_id;
+    // var patient;
+    // if (!state.patients) {
+    //     patient = {}; //TODO: better handle this
+    // } else {
+    //     patient = state.patients.find((patient) => {
+    //         return patient.id === patientId;
+    //     });
+    // }
+    return {
+      wounds: state.wounds,
+      //patient: patient
+    }
+  }
+
+export default connect(mapStateToProps)(PatientDetails)
