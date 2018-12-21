@@ -18,6 +18,7 @@ const store = createStore(
 
 store.dispatch(getAllPatients())
 
+//TODO: figure out why PROVIDER is important
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

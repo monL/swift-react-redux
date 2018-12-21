@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './css/App.css';
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
 import Home from './containers/Home'
 import PatientDetails from './containers/PatientDetails'

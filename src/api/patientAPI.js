@@ -17,6 +17,7 @@ const fetchPatients = (cb) => {
     });
 }
 
+//TODO: this could be extracted to a global helper
 function handleErrors(response) {
   if (!response.ok) {
     throw Error(response.statustext);
@@ -30,6 +31,7 @@ const parseData = (data) => {
   });
 }
 
+//TODO: this would be a great place for refactoring
 export default {
   getPatients: (cb) => {
     fetchPatients(cb);
