@@ -5,8 +5,6 @@ import {
 
 const initState = {};
 
-//TODO: ensure state is not being mutated.
-//TODO: review reducer and dispatcher standards
 const rootReducer = (state = initState, action) => {
   switch (action.type) {
     case RECEIVE_PATIENTS: {
@@ -16,15 +14,14 @@ const rootReducer = (state = initState, action) => {
       };
     }
     case RECEIVE_WOUNDS: {
-      //replace current wounds item...
-      //TODO: research best practices on how to do this..
-      //TODO: why does the state not have any patients at this point?
-      //This only works for replacing existing list of wounds...
-      const newState = {
+      /*replaces current patient wounds in state.
+      this goes under the assumption that we will only hold
+      information about the patient and its wounds that's viewed under
+      patient details. */
+      return {
         ...state,
         ...action.wounds
-      }
-      return newState;
+      };
     }
     default:
       return state;

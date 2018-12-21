@@ -1,17 +1,14 @@
-var wounds = {
-    wounds: []
-}
+import { rootURL } from '../constants/routes';
+import { handleErrors } from '../helpers/apiHandler';
 
-const fetchPatientWounds = (patientId, cb) => {
+const fetchPatientWounds = (patientId, dispatchAction) => {
     console.log('fetching wounds...hold on');
-    fetch(`http://0.0.0.0:3000/patients/${patientId}/wounds`)
-    //.then(handleErrors)
+    fetch(`${rootURL}/patients/${patientId}/wounds`)
+    .then(handleErrors)
     .then((resp) => resp.json())
     .then((data) => {
       const incomingWounds = parseData(data);
-      //TODO:DON'T MUTATE IT!!!!
-      wounds.wounds = [...wounds.wounds, ...incomingWounds];
-      cb(wounds);
+      dispatchAction({wounds: incomingWounds});
     }).catch(function(error) {
       console.log(error);
     });
@@ -23,9 +20,8 @@ const parseData = (data) => {
     });
   }
 
-//TODO: rename cb to a better variable
 export default {
-    getPatientWounds: (patientId, cb) => {
-        fetchPatientWounds(patientId, cb);
+    getPatientWounds: (patientId, dispatchAction) => {
+        fetchPatientWounds(patientId, dispatchAction);
     }
 }

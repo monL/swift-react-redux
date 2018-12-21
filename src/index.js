@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers/rootReducer';
-import { getAllPatients, getPatientWounds } from './actions/index';
+import { getAllPatients } from './actions/index';
 import thunk from 'redux-thunk';
 
 const middleware = [ thunk ];
@@ -18,10 +18,6 @@ const store = createStore(
 
 store.dispatch(getAllPatients())
 
-//TODO: figure out why PROVIDER is important
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();

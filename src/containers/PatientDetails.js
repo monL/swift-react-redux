@@ -16,7 +16,6 @@ class PatientDetails extends Component {
     }
         
     render() {
-        debugger
         const { wounds } = this.props;
 
         return (
@@ -35,7 +34,6 @@ class PatientDetails extends Component {
 
 //TODO: figure out how to get patientId here...
 const mapStateToProps = (state) => {
-    debugger
     //find patient with specific id
     // const patientId = this.props.match.params.patient_id;
     // var patient;
