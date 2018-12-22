@@ -23,11 +23,14 @@ class WoundRow extends Component {
                 <td>{ wound.attributes.bodyLocation }</td>
                 <td>{ wound.attributes.createdAt }</td>
                 <td>{ wound.attributes.updatedAt }</td>
-                <td>{ wound.attributes.inHouseAcquired }</td>
+                <td>{ wound.attributes.inHouseAcquired ? 'Yes': 'No' }</td>
                 <td>
-                    <form>
-                        <button onClick={this.handleClick}>Mark as Resolved</button>
-                    </form>
+                    { wound.attributes.resolved ? 
+                    'Resolved' : ( 
+                        <form>
+                            <button onClick={this.handleClick}>Mark as Resolved</button>
+                        </form>
+                    ) }
                 </td>
             </tr>
     )}
