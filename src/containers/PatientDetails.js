@@ -3,7 +3,7 @@ import WoundsTable from '../components/WoundsTable';
 import PatientInfo from '../components/PatientInfo';
 
 import { connect } from 'react-redux';
-import { getPatientWounds } from '../actions/index';
+import { getPatientDetails, getPatientWounds } from '../actions/index';
 
 class PatientDetails extends Component {
     //TODO: figure out best practices.
@@ -13,19 +13,22 @@ class PatientDetails extends Component {
         const patientId = props.match.params.patient_id;
 
         this.props.dispatch(getPatientWounds(patientId));
+        this.props.dispatch(getPatientDetails(patientId));
     }
         
     render() {
-        const { wounds } = this.props;
-
+        const { wounds, patient } = this.props;
+        
         return (
             <div className="patient-details">
-                <h1>Patient Name</h1>
+                { patient &&
+                    <h1>{patient.attributes.firstName} {patient.attributes.lastName}</h1>
+                }
                 <div className="patient-info">
-                    <PatientInfo />
+                    <PatientInfo patient={ patient } />
                 </div>
                 <div className="wounds">
-                    <WoundsTable wounds={wounds} /> 
+                    <WoundsTable wounds={ wounds } /> 
                 </div>
             </div>
         );
@@ -44,9 +47,10 @@ const mapStateToProps = (state) => {
     //         return patient.id === patientId;
     //     });
     // }
+
     return {
       wounds: state.wounds,
-      //patient: patient
+      patient: state.currentPatient
     }
   }
 

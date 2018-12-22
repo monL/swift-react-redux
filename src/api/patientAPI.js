@@ -19,9 +19,24 @@ const parseData = (data) => {
   });
 }
 
+const fetchPatientDetails = (patientId, dispatchAction) => {
+  fetch(`${rootURL}/patients/${patientId}`)
+    .then(handleErrors)
+    .then((resp) => resp.json())
+    .then((data) => {
+      const incomingPatient = data.data;
+      dispatchAction({currentPatient: incomingPatient});
+    }).catch(function(error) {
+      console.log(error);
+    });
+}
+
 //TODO: this would be a great place for refactoring
 export default {
   getPatients: (dispatchAction) => {
     fetchPatients(dispatchAction);
+  },
+  getPatientDetails: (patientId, dispatchAction) => {
+    fetchPatientDetails(patientId, dispatchAction);
   }
 }

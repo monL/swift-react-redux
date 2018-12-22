@@ -1,6 +1,7 @@
 import {
   RECEIVE_PATIENTS,
-  RECEIVE_WOUNDS
+  RECEIVE_WOUNDS,
+  RECEIVE_PATIENT_DETAILS
 } from '../constants/actionTypes'
 
 const initState = {};
@@ -22,6 +23,12 @@ const rootReducer = (state = initState, action) => {
         ...state,
         ...action.wounds
       };
+    }
+    case RECEIVE_PATIENT_DETAILS: {
+      return {
+        ...state,
+        ...action.currentPatient
+      }
     }
     default:
       return state;

@@ -10,14 +10,14 @@ const PatientInfo = (props) => {
             <div className="row">
                 <div className="col-sm col-md general-info">
                     <p>General Info</p>
-                    <p><a>Date of Birth:</a> (insert value here)</p>
-                    <p><a>Address:</a> (insert value here)</p>
-                    <p><a>Last Updated:</a> (insert value here)</p>
+                    <p><a>Date of Birth:</a>{ patient.attributes.dateOfBirth }</p>
+                    <p><a>Address:</a>{ patient.attributes.address }</p>
+                    <p><a>Last Updated:</a>{ patient.attributes.updatedAt }</p>
                 </div>
                 <div className="col-sm col-md hospital-info">
                     <p>Hospital Info</p>
-                    <p><a>Room #:</a> (insert value here)</p>
-                    <p><a>Bed #:</a> (insert value here)</p>
+                    <p><a>Room #:</a>{ patient.attributes.roomNumber }</p>
+                    <p><a>Bed #:</a>{ patient.attributes.bedNumber }</p>
                 </div>
             </div>
         </div>

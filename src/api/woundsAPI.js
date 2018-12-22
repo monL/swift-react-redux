@@ -21,7 +21,6 @@ const parseData = (data) => {
   }
 
 const resolvePatientWound = (woundId, dispatchAction) => {
-  debugger
   console.log(woundId);
 }  
 

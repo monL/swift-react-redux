@@ -28,7 +28,7 @@ class WoundRow extends Component {
                     { wound.attributes.resolved ? 
                     'Resolved' : ( 
                         <form>
-                            <button onClick={this.handleClick}>Mark as Resolved</button>
+                            <button className="btn btn-primary" onClick={this.handleClick}>Mark as Resolved</button>
                         </form>
                     ) }
                 </td>
