@@ -3,7 +3,8 @@ import woundsAPI from '../api/woundsAPI';
 
 import {
     RECEIVE_PATIENTS,
-    RECEIVE_WOUNDS
+    RECEIVE_WOUNDS,
+    UPDATE_WOUND
   } from '../constants/actionTypes'
 
 
@@ -29,8 +30,16 @@ const receivePatientWounds = (wounds) => ({
     wounds
   })
 
-/*
-export const updateWound = woundId => (dispatch, getState) => {
+
+export const resolveWound = (woundId) => dispatch => {
     // todo
+    woundsAPI.resolvePatientWound(woundId, (wound) => {
+        dispatch(confirmWoundResolved(wound))
+    });
 }
-*/
+
+const confirmWoundResolved = (wound) => ({
+    type: UPDATE_WOUND,
+    wound: wound
+});
+

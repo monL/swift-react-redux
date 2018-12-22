@@ -20,8 +20,16 @@ const parseData = (data) => {
     });
   }
 
+const resolvePatientWound = (woundId, dispatchAction) => {
+  debugger
+  console.log(woundId);
+}  
+
 export default {
     getPatientWounds: (patientId, dispatchAction) => {
         fetchPatientWounds(patientId, dispatchAction);
+    },
+    resolvePatientWound: (woundId, dispatchAction) => {
+      resolvePatientWound(woundId, dispatchAction);
     }
 }

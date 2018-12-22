@@ -1,5 +1,5 @@
 import React from 'react';
-import WoundRow from './WoundRow';
+import WoundRow from '../containers/WoundRow';
 
 const WoundsTable = (props) => {
     const { wounds } = props;
@@ -14,7 +14,7 @@ const WoundsTable = (props) => {
     
     return (
         <div className="wounds-table">
-            <table className="table table-striped table-hover">
+            <table className="table table-striped">
                 <thead>
                     <tr>
                         <th></th>
