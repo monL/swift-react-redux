@@ -20,22 +20,22 @@ const parseData = (data) => {
     });
   }
 
-const resolvePatientWound = (woundId, dispatchAction) => {
+const resolvePatientWound = (wound, dispatchAction) => {
   const payload = {
       data:{
-        type:"wounds",
-        id: woundId.toString(),
-        attributes:{
-          type:"string",
-          bodyLocation:"string",
-          inHouseAcquired:true,
-          resolved:true,
-          imageUrl:"string"
+        type: wound.type,
+        id: wound.id.toString(),
+        attributes: {
+          type: wound.attributes.type,
+          bodyLocation: wound.attributes.bodyLocation,
+          inHouseAcquired: wound.attributes.inHouseAcquired,
+          resolved: true,
+          imageUrl: wound.attributes.imageUrl
         }
       }
     }
 
-  fetch(`${rootURL}/wounds/${woundId}`, {
+  fetch(`${rootURL}/wounds/${wound.id}`, {
     method: "PATCH",
     body: JSON.stringify(payload),
     headers: {

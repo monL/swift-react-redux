@@ -43,9 +43,9 @@ const receivePatientWounds = (wounds) => ({
   })
 
 
-export const resolveWound = (woundId) => dispatch => {
-    woundsAPI.resolvePatientWound(woundId, (wound) => {
-        dispatch(confirmWoundResolved(wound))
+export const resolveWound = (wound) => dispatch => {
+    woundsAPI.resolvePatientWound(wound, (updatedWound) => {
+        dispatch(confirmWoundResolved(updatedWound))
     });
 }
 

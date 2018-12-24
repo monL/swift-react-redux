@@ -10,7 +10,7 @@ class WoundRow extends Component {
 
     handleClick(e) {
         this.props.dispatch(resolveWound(
-            this.props.wound.id
+            this.props.wound
         ));
     }
 
