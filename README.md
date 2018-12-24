@@ -17,6 +17,6 @@ Run
 
 ### See the application in your browser
 Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser (the port number might be different if there is another process running at port:3000)
 
 The page will reload if you make edits.<br>
