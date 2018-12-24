@@ -1,7 +1,8 @@
 import {
   RECEIVE_PATIENTS,
   RECEIVE_WOUNDS,
-  RECEIVE_PATIENT_DETAILS
+  RECEIVE_PATIENT_DETAILS,
+  UPDATE_WOUND
 } from '../constants/actionTypes'
 
 const initState = {};
@@ -28,6 +29,13 @@ const rootReducer = (state = initState, action) => {
       return {
         ...state,
         ...action.currentPatient
+      }
+    }
+    case UPDATE_WOUND: {
+      //TODO: here we need to figure out how to update
+      //the state...ie. list of wounds. with new new wound data
+      return {
+        ...state
       }
     }
     default:

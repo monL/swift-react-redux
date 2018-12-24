@@ -18,7 +18,7 @@ class WoundRow extends Component {
         const { wound } = this.props; 
         return (
             <tr>
-                <td><img src={ wound.attributes.imageUrl } className="img-thumbnail"></img></td>
+                <td><img src={ wound.attributes.imageUrl } className="img-thumbnail" alt="Wound"></img></td>
                 <td>{ wound.attributes.type }</td>
                 <td>{ wound.attributes.bodyLocation }</td>
                 <td>{ wound.attributes.createdAt }</td>
@@ -28,7 +28,9 @@ class WoundRow extends Component {
                     { wound.attributes.resolved ? 
                     'Resolved' : ( 
                         <form>
-                            <button className="btn btn-primary" onClick={this.handleClick}>Mark as Resolved</button>
+                            <button className="btn btn-primary" onClick={this.handleClick}>
+                                Mark as Resolved
+                            </button>
                         </form>
                     ) }
                 </td>
