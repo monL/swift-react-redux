@@ -44,7 +44,6 @@ const receivePatientWounds = (wounds) => ({
 
 
 export const resolveWound = (woundId) => dispatch => {
-    // todo
     woundsAPI.resolvePatientWound(woundId, (wound) => {
         dispatch(confirmWoundResolved(wound))
     });

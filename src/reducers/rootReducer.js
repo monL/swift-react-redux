@@ -32,15 +32,26 @@ const rootReducer = (state = initState, action) => {
       }
     }
     case UPDATE_WOUND: {
-      //TODO: here we need to figure out how to update
-      //the state...ie. list of wounds. with new new wound data
-      return {
-        ...state
-      }
+      const updatedWounds = updateWounds(state.wounds, action.wound)
+      const newState = {
+        ...state,
+        wounds: updatedWounds
+      };
+      return newState;
     }
     default:
       return state;
   }
+}
+
+const updateWounds = (wounds, updatedWound) => {
+  return wounds.map(wound => {
+    if (wound.id === updatedWound.id) {
+      return updatedWound
+    } else {
+      return wound;
+    }
+  });
 }
 
 export default rootReducer

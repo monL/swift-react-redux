@@ -21,32 +21,31 @@ const parseData = (data) => {
   }
 
 const resolvePatientWound = (woundId, dispatchAction) => {
-  //TODO: complete here
-  debugger
-  console.log('updating/pathching wound:', woundId);
-  fetch(`${rootURL}/wounds/${woundId}`, {
-    method: "PATCH",
-    body: {
-      "data": {
-        "id": `"${woundId}"`,
-        "type": "wound",
-        "attributes": {
-          "type": "cut",
-          "bodyLocation": "shoulder",
-          "inHouseAcquired": true,
-          "resolved": true,
-          "imageUrl": "img.img"
+  const payload = {
+      data:{
+        type:"wounds",
+        id: woundId.toString(),
+        attributes:{
+          type:"string",
+          bodyLocation:"string",
+          inHouseAcquired:true,
+          resolved:true,
+          imageUrl:"string"
         }
       }
-    },
-    //body: JSON.stringify(data),
+    }
+
+  fetch(`${rootURL}/wounds/${woundId}`, {
+    method: "PATCH",
+    body: JSON.stringify(payload),
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Accept": "application/json"
     }
   }).then(handleErrors)
     .then((resp) => resp.json())
     .then((data) => {
-      console.log(data);
+      dispatchAction({wound: data});
     }).catch(function(error) {
       console.log(error);
     });
