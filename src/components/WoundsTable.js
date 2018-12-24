@@ -4,7 +4,7 @@ import WoundRow from '../containers/WoundRow';
 const WoundsTable = (props) => {
     const { wounds } = props;
     
-    if ( !wounds || wounds.length === 0 ) return <div className="empty-content"><h3>No wounds</h3></div>;
+    if ( !wounds || wounds.length === 0 ) return <div><h3>No wounds</h3></div>;
     
     const woundRows = wounds.map(wound => {
         return (
@@ -13,7 +13,7 @@ const WoundsTable = (props) => {
     });
     
     return (
-        <div className="wounds-table">
+        <div>
             <table className="table table-striped">
                 <thead>
                     <tr>

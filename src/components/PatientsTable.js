@@ -4,7 +4,7 @@ import PatientRow from './PatientRow';
 const PatientsTable = (props) => {
     const { patients } = props;
     
-    if ( !patients || patients.length === 0 ) return <div className="empty-content"><h3>No patients</h3></div>;
+    if ( !patients || patients.length === 0 ) return <div><h3>No patients</h3></div>;
     
     const patientRows = patients.map(patient => {
         return (
@@ -13,7 +13,7 @@ const PatientsTable = (props) => {
     });
 
     return (
-        <div className="patients-table">
+        <div>
             <table className="table table-striped table-hover">
                 <thead>
                     <tr>

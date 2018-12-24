@@ -7,7 +7,7 @@ class Home extends Component {
     const { patients } = this.props;
 
     return (
-      <div className="Home">
+      <div>
         <h1>Patients</h1>
         <PatientsTable patients={patients}/>
       </div>

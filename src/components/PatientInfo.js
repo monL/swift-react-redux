@@ -3,7 +3,7 @@ import React from 'react';
 const PatientInfo = (props) => {
     const { patient } = props;
     
-    if ( !patient ) return <div className="empty-content"><h3>No details were found for patient with id: </h3></div>;
+    if ( !patient ) return <div><h3>No details were found for patient with id: </h3></div>;
     
     return (
         <div className="container">
