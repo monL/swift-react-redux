@@ -8,16 +8,17 @@ const PatientInfo = (props) => {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-sm col-md general-info">
-                    <p>General Info</p>
-                    <p><i>Date of Birth:</i>{ patient.attributes.dateOfBirth }</p>
-                    <p><i>Address:</i>{ patient.attributes.address }</p>
-                    <p><i>Last Updated:</i>{ patient.attributes.updatedAt }</p>
+                <div className="col-sm col-md info-section">
+                    <h3>General Info</h3>
+                    <p><b>Date of Birth: </b>{ patient.attributes.dateOfBirth.split('T')[0] }</p>
+                    <p><b>Address: </b>{ patient.attributes.address }</p>
+                    <p><b>Last Updated: </b>{ patient.attributes.updatedAt.split('T')[0] }</p>
                 </div>
-                <div className="col-sm col-md hospital-info">
-                    <p>Hospital Info</p>
-                    <p><i>Room #:</i>{ patient.attributes.roomNumber }</p>
-                    <p><i>Bed #:</i>{ patient.attributes.bedNumber }</p>
+                <div className="vertical-line"></div>
+                <div className="col-sm col-md info-section">
+                    <h3>Hospital Info</h3>
+                    <p><b>Room Number: </b>{ patient.attributes.roomNumber }</p>
+                    <p><b>Bed Number: </b>{ patient.attributes.bedNumber }</p>
                 </div>
             </div>
         </div>

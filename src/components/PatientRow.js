@@ -11,7 +11,7 @@ const PatientRow = (props) => {
             <td>{ patient.attributes.bedNumber }</td>
             <td>
                 <Link to={'/patients/' + patient.id}>
-                    <span>See Details ></span>
+                    <span>See Details</span>
                 </Link>
             </td>
         </tr>

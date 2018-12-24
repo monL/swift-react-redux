@@ -28,6 +28,7 @@ class PatientDetails extends Component {
                     <PatientInfo patient={ patient } />
                 </div>
                 <div className="wounds">
+                    <h2>Wounds</h2>
                     <WoundsTable wounds={ wounds } /> 
                 </div>
             </div>

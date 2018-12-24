@@ -8,7 +8,7 @@ class Home extends Component {
 
     return (
       <div className="Home">
-        <h1>Swift Medical - React/Redux Challenge</h1>
+        <h1>Patients</h1>
         <PatientsTable patients={patients}/>
       </div>
     );

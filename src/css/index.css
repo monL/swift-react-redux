@@ -1,11 +1,13 @@
 body {
-  margin: 0;
+  margin: 2vw 4vw;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: roboto;
+  color: #1f2a44;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, th {
+  text-transform: uppercase;
 }
 
 code {
@@ -13,6 +15,26 @@ code {
     monospace;
 }
 
+.patient-info {
+  background-color: #F2F2F2;
+}
+
+.patient-info > .container {
+  margin: 0px;
+}
+
+.patient-info .info-section {
+  margin: 2vw 2vw;
+}
+
+.vertical-line {
+  border-left: 4px solid white;
+}
+
 .img-thumbnail {
   height: 100px;
+}
+
+.wounds {
+  margin-top: 6vh;
 }
